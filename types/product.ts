@@ -11,7 +11,6 @@ export interface ProductResponse {
   total: number;
   skip: number;
   limit: number;
-  pages: T[];
   pageParams: unknown[];
 }
 
