@@ -1,6 +1,11 @@
 import React from "react";
+import type { Product } from "@/types/product";
 
-export default function ProductCard({ product }) {
+interface Props {
+  product: Product;
+}
+
+export default function ProductCard({ product }: Props) {
   return (
     <div className="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
       <div className="relative pt-[100%] bg-gray-50">
@@ -11,11 +16,11 @@ export default function ProductCard({ product }) {
           loading="lazy"
         />
       </div>
-      <div className="p-4 flex flex-col flex-grow">
+      <div className="p-4 flex flex-col grow">
         <span className="text-xs font-medium text-blue-600 uppercase tracking-wider mb-1">
           {product.category}
         </span>
-        <h3 className="font-semibold text-gray-800 line-clamp-2 mb-2 flex-grow">
+        <h3 className="font-semibold text-gray-800 line-clamp-2 mb-2 grow">
           {product.title}
         </h3>
         <div className="flex items-center justify-between mt-auto">

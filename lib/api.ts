@@ -1,4 +1,4 @@
-import { ProductsResponse } from "@/types/product";
+import { ProductResponse } from "@/types/product";
 
 const BASE_URL = "https://dummyjson.com/products";
 
@@ -12,7 +12,7 @@ export async function fetchProducts({
   pageParam = 0,
   search,
   sort,
-}: FetchProductsParams): Promise<ProductsResponse> {
+}: FetchProductsParams): Promise<ProductResponse> {
   const limit = 12;
   const skip = pageParam * limit;
 
@@ -25,7 +25,7 @@ export async function fetchProducts({
   const res = await fetch(url);
   if (!res.ok) throw new Error("Failed to fetch products");
 
-  const data: ProductsResponse = await res.json();
+  const data: ProductResponse = await res.json();
 
   if (sort === "price-asc") data.products.sort((a, b) => a.price - b.price);
   if (sort === "price-desc") data.products.sort((a, b) => b.price - a.price);

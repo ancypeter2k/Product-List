@@ -11,4 +11,11 @@ export interface ProductResponse {
   total: number;
   skip: number;
   limit: number;
+  pages: T[];
+  pageParams: unknown[];
+}
+
+export interface ProductsPage {
+  products: Product[];
+  nextPage?: number;
 }

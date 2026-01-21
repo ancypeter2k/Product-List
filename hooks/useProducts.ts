@@ -1,12 +1,12 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { fetchProducts } from '@/lib/api';
-import type { ProductsResponse } from '@/types/product';
+import type { ProductResponse } from '@/types/product';
 
 export function useProducts(search: string, sort: string) {
   return useInfiniteQuery<
-    ProductsResponse,
+    ProductResponse,
     Error,
-    ProductsResponse,
+    ProductResponse,
     [string, string, string],
     number
   >({

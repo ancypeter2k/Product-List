@@ -7,6 +7,8 @@ import Loader from "../components/Loader";
 import { useDebounce } from "../hooks/useDebounce";
 import { useProducts } from "../hooks/useProducts";
 import { AlertCircle, RefreshCcw } from "lucide-react";
+import type { InfiniteData } from "@tanstack/react-query";
+import type { ProductResponse } from "@/types/product";
 
 export default function App() {
   const [search, setSearch] = useState("");
@@ -25,7 +27,9 @@ export default function App() {
     refetch
   } = useProducts(debouncedSearch, sort);
 
-  const products = data?.pages.flatMap((page) => page.products) ?? [];
+  const products =
+    (data as InfiniteData<ProductResponse> | undefined)?.pages
+      .flatMap(page => page.products) ?? [];
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 font-sans antialiased">

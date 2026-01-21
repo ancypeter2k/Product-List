@@ -1,14 +1,22 @@
 import React, { useEffect, useRef } from "react";
 import ProductCard from "./ProductCard";
 import Loader from "./Loader";
+import type { Product } from "@/types/product";
+
+interface Props {
+  products: Product[];
+  fetchNextPage: () => void;
+  hasNextPage: boolean | undefined;
+  isFetchingNextPage: boolean;
+}
 
 export default function ProductGrid({
   products,
   fetchNextPage,
   hasNextPage,
   isFetchingNextPage,
-}) {
-  const loadMoreRef = useRef(null);
+}: Props) {
+  const loadMoreRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
