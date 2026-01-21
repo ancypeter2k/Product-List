@@ -30,3 +30,4 @@ Then open `http://localhost:3000` (or the port shown in the terminal).
 - `components/Navbar.tsx` – ecommerce-style navbar with search and sorting.
 - `components/ProductGrid.tsx` and `components/ProductCard.tsx` – responsive product grid and cards.
 # Product-List
+# Product-List
